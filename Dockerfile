@@ -1,4 +1,6 @@
 FROM debian:latest
+LABEL maintainer="nick@mistry.com"
+
 RUN apt-get update && apt-get install -y \
     automake \
     bison \
@@ -41,7 +43,7 @@ RUN ./ct-ng xtensa-esp32-elf \
     && echo "CT_ALLOW_BUILD_AS_ROOT=y" >> .config \
     && echo "CT_ALLOW_BUILD_AS_ROOT_SURE=y" >> .config \
     && ./ct-ng build \
-    chmod -R u+w builds/xtensa-esp32-elf
+    && chmod -R u+w builds/xtensa-esp32-elf
 
 WORKDIR /esp
 RUN git clone --recursive https://github.com/espressif/esp-idf.git

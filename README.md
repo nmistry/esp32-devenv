@@ -14,3 +14,7 @@ docker build -t esp32-devenv .
 docker run --name esp32-devenv -it esp32-devenv /bin/bash
 ```
 
+## Directories
+
+- /src - Mounted location of source files
+- /esp - location of esp toolchain
